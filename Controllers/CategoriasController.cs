@@ -36,5 +36,11 @@ namespace Projeto_MVC_5.Controllers
         {
             return View(categorias);
         }
+
+        //	GET: Create
+        public ActionResult Create()
+        {
+            return View();
+        }
     }
 }
