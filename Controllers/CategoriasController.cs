@@ -42,5 +42,15 @@ namespace Projeto_MVC_5.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Categoria categoria)
+        {
+            categorias.Add(categoria);
+            categoria.CategoriaId = categorias.Select(m => m.CategoriaId).Max() + 1;
+            return RedirectToAction("Index");
+        }
+
     }
 }
