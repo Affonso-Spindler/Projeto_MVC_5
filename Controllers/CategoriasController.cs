@@ -66,6 +66,10 @@ namespace Projeto_MVC_5.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Details(long id)
+        {
+            return View(categorias.Where(m => m.CategoriaId == id).First());
+        }
 
     }
 }
