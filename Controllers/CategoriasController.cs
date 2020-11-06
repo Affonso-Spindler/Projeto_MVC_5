@@ -52,5 +52,20 @@ namespace Projeto_MVC_5.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Edit(long id)
+        {
+            return View(categorias.Where(m => m.CategoriaId == id).First());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Categoria categoria)
+        {
+            categorias[categorias.IndexOf(categorias.Where(c =>c.CategoriaId == categoria.CategoriaId).First())] = categoria;
+            categorias.Add(categoria);
+            return RedirectToAction("Index");
+        }
+
+
     }
 }
